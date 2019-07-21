@@ -3,32 +3,75 @@
 <head>
 	<meta charset="UTF-8">
 	<title>タイトル</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-<% @mikito_tasks.each do |task| %>
-	<li><%= task.name %></li>
-	<li><%= task.title %></li>
-	<li><%= task.comment %></li>
-	<li><%= task.time %></li>
-	<li><%= task.created_at %></li>
-<% end %>
-<%= @mikito_time %>
-<% @hayato_tasks.each do |task| %>
-	<li><%= task.name %></li>
-	<li><%= task.title %></li>
-	<li><%= task.comment %></li>
-	<li><%= task.time %></li>
-	<li><%= task.created_at %></li>
-<% end %>
+
+<div class="content">
+<div class="mikito card">
+	<h2>みきと</h2>
+	<div class="mikito tasks">
+	<% @mikito_tasks.each do |task| %>
+	<ul>
+		<li><%= task.title %></li>
+		<li><%= task.comment %></li>
+		<li><%= task.time %></li>
+		<li><%= task.created_at.strftime('%Y/%m/%d') %></li>
+	<ul>
+	<% end %>
+	</div>
+<input name="time", type= "hidden" value=1, class='time'>
+<div class="rate"></div>
+</div>
+<div class="hayato card">
+	<h2>はやと</h2>
+	<div class="hayato tasks">
+		<% @hayato_tasks.each do |task| %>
+		<ul>
+			<li><%= task.title %></li>
+			<li><%= task.comment %></li>
+			<li><%= task.time %></li>
+			<li><%= task.created_at.strftime('%Y/%m/%d') %></li>
+		</ul>
+		<% end %>
+	</div>
 <%= @hayato_time %>
-<% @karen_tasks.each do |task| %>
-	<li><%= task.name %></li>
-	<li><%= task.title %></li>
-	<li><%= task.comment %></li>
-	<li><%= task.time %></li>
-	<li><%= task.created_at %></li>
-<% end %>
+<div class="rate"></div>
+</div>
+<div class="karen card">
+	<h2>かれん</h2>
+	<div class="karen tasks">
+		<% @karen_tasks.each do |task| %>
+		<ul>
+			<li><%= task.title %></li>
+			<li><%= task.comment %></li>
+			<li><%= task.time %></li>
+			<li><%= task.created_at.strftime('%Y/%m/%d') %></li>
+		</ul>
+		<% end %>
+	</div>
 <%= @karen_time %>
-<a href="/new">記録を追加する</a>
+<div class="rate"></div>
+</div>
+<div class="chahan card">
+	<h2>ちゃーはん</h2>
+	<div class="chahan tasks">
+		<% @chahan_tasks.each do |task| %>
+		<ul>
+			<li><%= task.title %></li>
+			<li><%= task.comment %></li>
+			<li><%= task.time %></li>
+			<li><%= task.created_at.strftime('%Y/%m/%d') %></li>
+		</ul>
+		<% end %>
+	</div>
+<%= @chahan_time %>
+<div class="rate"></div>
+</div>
+</div>
+<a class="" href="/new">記録を追加する</a>
+<script src="js/anime.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="js/top.js"></script>
 </body>
 </html>
